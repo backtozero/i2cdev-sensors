@@ -167,6 +167,14 @@ pub fn get_linux_bmp280_i2c_device() -> Result<LinuxI2CDevice, LinuxI2CError> {
     }
 }
 
+#[cfg(any(target_os = "linux", target_os = "android"))]
+pub fn get_linux_bmp280_i2c_device_with_addr(addr: u16) -> Result<LinuxI2CDevice, LinuxI2CError> {
+    match LinuxI2CDevice::new("/dev/i2c-1", addr) {
+        Ok(device) => Ok(device),
+        Err(e) => Err(e)
+    }
+}
+
 #[derive(Copy,Clone)]
 pub struct BMP280<T: I2CDevice + Sized> {
     pub barometer: T,
