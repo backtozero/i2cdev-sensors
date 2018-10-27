@@ -233,6 +233,14 @@ pub fn get_default_lsm9ds0_linux_i2c_devices() -> Result<(LinuxI2CDevice,LinuxI2
     Ok((gyro,accel_mag))
 }
 
+/// Returns (gyroscope, accelerometer/magnetometer) with custom I2C addresses.
+#[cfg(any(target_os = "linux", target_os = "android"))]
+pub fn get_default_lsm9ds0_linux_i2c_devices_with_addr(addr_gyro: u16, addr_accel_mag: u16) -> Result<(LinuxI2CDevice,LinuxI2CDevice),LinuxI2CError> {
+    let gyro = try!(LinuxI2CDevice::new("/dev/i2c-1", addr_gyro));
+    let accel_mag = try!(LinuxI2CDevice::new("/dev/i2c-1", addr_accel_mag));
+    Ok((gyro,accel_mag))
+}
+
 #[derive(Copy,Clone)]
 pub struct LSM9DS0<T: I2CDevice + Sized> {
     pub accelerometer_magnetometer: T,
