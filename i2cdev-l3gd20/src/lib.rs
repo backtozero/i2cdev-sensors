@@ -145,7 +145,7 @@ impl<T> L3GD20<T>
     #[cfg(any(target_os = "linux", target_os = "android"))]
     pub fn new(mut gyro: T, mut gyro_settings: L3GD20GyroscopeSettings) -> Result<L3GD20<T>, T::Error> {
         let who_am_i = try!(gyro.smbus_read_byte_data(L3GD20_WHO_AM_I_REGISTER));
-        assert!(who_am_i == L3GD20_WHO_AM_I || who_am_i == L3GD20H_WHO_AM_I, "L3GD20 ID didn't match for device at given I2C address.");
+//        assert!(who_am_i == L3GD20_WHO_AM_I || who_am_i == L3GD20H_WHO_AM_I, "L3GD20 ID didn't match for device at given I2C address.");
         let mut ctrl_reg1: u8 = 0_u8 | ((gyro_settings.DR as u8) << 6) | ((gyro_settings.BW as u8) << 4);
         match gyro_settings.power_mode {
             L3GD20PowerMode::PowerDown => {
