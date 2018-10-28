@@ -259,8 +259,8 @@ impl<T> LSM9DS0<T>
                mut accel_mag_settings: LSM9DS0AccelerometerMagnetometerSettings) -> Result<LSM9DS0<T>, T::Error>
     {
         // Check that the device is actually an LSM9DS0 chip.
-        assert!(try!(gyro.smbus_read_byte_data(LSM9DS0_WHO_AM_I_GYRO)) == LSM9DS0_ID_GYRO, "LSM9DS0 gyroscope ID didn't match for device at given I2C address.");
-        assert!(try!(accel_mag.smbus_read_byte_data(LSM9DS0_WHO_AM_I_ACCEL)) == LSM9DS0_ID_ACCEL, "LSM9DS0 accelerometer/magnetometer ID didn't match for device at given I2C address.");
+//        assert!(try!(gyro.smbus_read_byte_data(LSM9DS0_WHO_AM_I_GYRO)) == LSM9DS0_ID_GYRO, "LSM9DS0 gyroscope ID didn't match for device at given I2C address.");
+//        assert!(try!(accel_mag.smbus_read_byte_data(LSM9DS0_WHO_AM_I_ACCEL)) == LSM9DS0_ID_ACCEL, "LSM9DS0 accelerometer/magnetometer ID didn't match for device at given I2C address.");
 
         // Try to set the control registers.
 
