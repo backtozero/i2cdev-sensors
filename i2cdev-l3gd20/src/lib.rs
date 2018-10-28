@@ -27,7 +27,7 @@ use byteorder::{ByteOrder, BigEndian, LittleEndian};
 
 // Addresses
 
-pub const L3GD20_I2C_ADDR: u16 = 0x6A;
+pub const L3GD20_I2C_ADDR: u16 = 0x69;
 pub const L3GD20H_I2C_ADDR: u16 = 0x6B;
 
 const L3GD20_CTRL_REG1: u8 = 0x20;
