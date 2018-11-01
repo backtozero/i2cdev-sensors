@@ -26,7 +26,7 @@ use i2cdev::linux::{LinuxI2CDevice,LinuxI2CError};
 use byteorder::{ByteOrder, BigEndian, LittleEndian};
 
 // Addresses
-pub const LSM9DS0_I2C_ADDR_GYRO: u16 = 0x6A;
+pub const LSM9DS0_I2C_ADDR_GYRO: u16 = 0x19;
 pub const LSM9DS0_I2C_ADDR_ACCEL_MAG: u16 = 0x1E;
 
 const LSM9DS0_CTRL_REG1: u8 = 0x20;
